@@ -6,7 +6,7 @@ Koha’s Plugin System (available in Koha 3.12+) allows us to add additional too
 
 # Downloading
 
-From the [release page](https://github.com/l2c2technologies/koha-plugin-carttoshelf/releases) we can download the relevant *.kpz file
+From the [release page](/root/Koha/koha-plugin-cart-to-shelf/README.md) we can download the relevant *.kpz file
 
 # Installing
 
