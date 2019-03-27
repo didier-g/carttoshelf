@@ -1,0 +1,51 @@
+[% INCLUDE 'doc-head-open.inc' %]
+<title>L2C2 Cart to Shelf plugin</title>
+[% INCLUDE 'doc-head-close.inc' %]
+</head>
+<body id="plugins_cart_to_shelf">
+[% INCLUDE 'header.inc' %]
+[% INCLUDE 'cat-search.inc' %]
+
+<div id="breadcrumbs"><a href="/cgi-bin/koha/mainpage.pl">Home</a> &rsaquo; <a href="/cgi-bin/koha/plugins/plugins-home.pl">Plugins</a> &rsaquo; Cart to Shelf plugin tool</div>
+
+<div id="doc3">
+
+<div class="yui-g">
+  <h3>L2C2 Technologies's CartToShelf Plugin</h3>
+  <hr/>
+
+  [% IF barcode_processed > 0 %]
+
+    <table>
+      <thead>
+        <tr>
+          <th>Barcodes submitted</th>
+          <th>No. of items moved to shelf</th>
+          <th>No. of barcodes not in 'CART'</th>
+          <th>List of barcodes not in 'CART'</th>
+          <th>No. of invalid barcodes</th>
+          <th>List of invalid barcodes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: center;">[% barcode_processed %]</td>
+          <td style="text-align: center;">[% items_moved_count %]</td>
+          <td style="text-align: center;">[% non_cart_barcodes %]</td>
+          <td style="text-align: center;">[% list_of_non_cart_barcodes.join(', ') %]</td>
+          <td style="text-align: center;">[% bad_barcode_count %]</td>
+          <td style="text-align: center;">[% list_of_bad_barcodes.join(', ') %]</td>
+        </tr>
+      <tbody>
+    </table>
+
+  [% ELSE %]
+
+    <p><strong><em>No barcode was submitted for moving to shelf!</em></strong></p>
+
+  [% END %]
+
+  <hr/>
+
+</div>
+[% INCLUDE 'intranet-bottom.inc' %]

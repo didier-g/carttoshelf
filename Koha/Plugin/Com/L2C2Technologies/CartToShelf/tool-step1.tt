@@ -1,0 +1,37 @@
+[% USE Branches %]
+[% USE KohaDates %]
+[% USE Price %]
+[% USE AuthorisedValues %]
+[% INCLUDE 'doc-head-open.inc' %]
+<title>L2C2 Cart to Shelf plugin</title>
+[% INCLUDE 'doc-head-close.inc' %]
+</head>
+<body id="plugins_cart_to_shelf">
+
+[% INCLUDE 'header.inc' %]
+[% INCLUDE 'cat-search.inc' %]
+
+<div id="breadcrumbs"><a href="/cgi-bin/koha/mainpage.pl">Home</a> &rsaquo; <a href="/cgi-bin/koha/plugins/plugins-home.pl">Plugins</a> &rsaquo; Cart to Shelf plugin tool</div>
+
+<div id="doc3">
+
+<div class="yui-g">
+  <h3>L2C2 Technologies's CartToShelf Plugin</h3>
+  <form method="post">
+      <input type="hidden" name="class" value="[% CLASS %]"/>
+      <input type="hidden" name="method" value="[% METHOD %]"/>
+      <fieldset class="rows">
+        <legend>Scan / enter barcodes one by one</legend>
+        <ol>
+          <li>
+            <label for="barcode_list">Barcode list (one barcode per line): </label>
+            <textarea rows="10" cols="30" id="barcode_list" name="barcode_list"></textarea>
+          </li>
+        </ol>
+      </fieldset>
+      <fieldset class="action">
+        <input name="move_to_shelf" id="move_to_shelf" type="submit" value="Move to shelf" class="button" />
+      </fieldset>
+  </form>
+</div>
+[% INCLUDE 'intranet-bottom.inc' %]
