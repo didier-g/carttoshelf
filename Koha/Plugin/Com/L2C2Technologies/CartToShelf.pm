@@ -8,7 +8,7 @@ use base qw(Koha::Plugins::Base);
 
 ## We will also need to include any Koha libraries we want to access
 use C4::Context;
-use C4::Auth;
+use Koha::DateUtils;
 
 use C4::Items qw/ GetItem GetItemnumberFromBarcode CartToShelf /;
 use C4::Log;
