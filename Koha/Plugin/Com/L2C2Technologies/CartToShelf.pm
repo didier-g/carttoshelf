@@ -10,9 +10,10 @@ use base qw(Koha::Plugins::Base);
 use C4::Context;
 use Koha::DateUtils;
 
-use C4::Items qw/ GetItem GetItemnumberFromBarcode CartToShelf /;
+use C4::Items qw/ GetItem CartToShelf /;
 use C4::Log;
 
+use Koha::Items;
 
 ## Here we set our plugin version
 our $VERSION = "1.0";
@@ -115,7 +116,8 @@ sub tool_step2 {
            # check if a valid barcode
            if ( $get_valid_barcode ) {
                if ( $get_valid_barcode->{'location'} eq 'CART' ) {
-                  my $item_number = GetItemnumberFromBarcode($number);
+                  my $item_from_barcode = Koha::Items->find({barcode => $number });
+                  my $item_number = $item_from_barcode->itemnumber;
                   CartToShelf($item_number);
                   logaction("CATALOGUING", "MODIFY", $item_number, "[CartToShelf Plugin] Changed from 'CART' to '".$get_valid_barcode->{'permanent_location'}."'" );
                   $items_moved_count++;
